@@ -2,6 +2,8 @@
 
 Marginalia is a clean, typography-focused publication platform inspired by the printed pages of literary journals and the handwritten annotations of well-read books. Built with a modern, text-forward design system, it rejects standard card grids and corporate styles, prioritizing whitespace, high-fidelity typesetting, and quiet reading.
 
+**Live Journal**: [marginalia-blog-website.vercel.app](https://marginalia-blog-website.vercel.app/)
+
 ---
 
 ## Technical Stack
