@@ -60,9 +60,9 @@ To set up and start the application on your computer, follow these terminal step
        MONGO_URI=mongodb://127.0.0.1:27017/marginalia
        ```
    * **For MongoDB Atlas (Deployment)**:
-     * Your personal Atlas connection string has been pre-configured and commented out in the `.env` file. To activate it, uncomment the Atlas line:
+     * To deploy to production, replace the local connection string with your MongoDB Atlas credentials:
        ```env
-       MONGO_URI=mongodb+srv://marginalia:marginalia123@cluster0.oair7q6.mongodb.net/marginalia?retryWrites=true&w=majority&appName=Cluster0
+       MONGO_URI=mongodb+srv://<username>:<password>@cluster0.oair7q6.mongodb.net/marginalia?retryWrites=true&w=majority&appName=Cluster0
        ```
 5. Run the dev script (starts server on port `5000` via `nodemon`):
    ```bash
