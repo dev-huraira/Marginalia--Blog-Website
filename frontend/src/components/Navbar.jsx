@@ -1,15 +1,26 @@
 import React from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { BookOpen, Feather } from 'lucide-react';
 
 const Navbar = () => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLogout = () => {
     logout();
     navigate('/');
+  };
+
+  const handleAboutClick = (e) => {
+    if (location.pathname === '/') {
+      e.preventDefault();
+      const aboutElem = document.getElementById('about');
+      if (aboutElem) {
+        aboutElem.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
   };
 
   return (
@@ -24,15 +35,23 @@ const Navbar = () => {
         </Link>
 
         {/* Navigation Items */}
-        <nav className="flex items-center space-x-6 md:space-x-8 text-sm font-sans tracking-wide uppercase text-ink-muted">
+        <nav className="flex items-center space-x-5 md:space-x-8 text-xs md:text-sm font-sans tracking-wide uppercase text-ink-muted">
           <NavLink 
-            to="/" 
+            to="/journal" 
             className={({ isActive }) => 
               `hover:text-forest transition-colors ${isActive ? 'text-forest font-semibold border-b-2 border-forest pb-1 -mb-[26px]' : ''}`
             }
           >
-            Journal
+            Read
           </NavLink>
+
+          <a 
+            href="/#about" 
+            onClick={handleAboutClick}
+            className="hover:text-forest transition-colors"
+          >
+            About
+          </a>
 
           {user ? (
             <>
@@ -63,14 +82,23 @@ const Navbar = () => {
               </button>
             </>
           ) : (
-            <NavLink 
-              to="/login" 
-              className={({ isActive }) => 
-                `px-3 py-1.5 rounded-sm bg-forest hover:bg-forest-hover text-ivory transition-all shadow-sm normal-case font-medium ${isActive ? 'bg-forest-hover font-semibold' : ''}`
-              }
-            >
-              Sign In
-            </NavLink>
+            <div className="flex items-center space-x-3 normal-case">
+              <NavLink 
+                to="/login" 
+                className={({ isActive }) => 
+                  `hover:text-forest transition-colors text-ink font-medium ${isActive ? 'text-forest font-semibold' : ''}`
+                }
+              >
+                Sign In
+              </NavLink>
+
+              <NavLink 
+                to="/register" 
+                className="px-3 py-1.5 rounded-sm bg-forest hover:bg-forest-hover text-ivory transition-all shadow-sm font-medium text-xs tracking-wider uppercase"
+              >
+                Join
+              </NavLink>
+            </div>
           )}
         </nav>
       </div>

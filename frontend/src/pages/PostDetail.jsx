@@ -94,7 +94,7 @@ const PostDetail = () => {
     <article className="max-w-reading mx-auto animate-fade-in">
       {/* Back button */}
       <Link 
-        to="/" 
+        to="/journal" 
         className="inline-flex items-center space-x-2 text-xs font-sans tracking-widest text-ink-muted hover:text-forest uppercase transition-colors mb-12"
       >
         <ArrowLeft className="w-3.5 h-3.5" />

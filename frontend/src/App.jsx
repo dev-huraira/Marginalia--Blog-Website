@@ -5,6 +5,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Navbar from './components/Navbar';
 
 // Pages
+import Home from './pages/Home';
 import Feed from './pages/Feed';
 import PostDetail from './pages/PostDetail';
 import Editor from './pages/Editor';
@@ -23,7 +24,8 @@ function App() {
           <main className="flex-grow px-6 md:px-12 py-10 md:py-16">
             <Routes>
               {/* Public Routes */}
-              <Route path="/" element={<Feed />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/journal" element={<Feed />} />
               <Route path="/posts/:id" element={<PostDetail />} />
               <Route path="/login" element={<AuthForms isRegister={false} />} />
               <Route path="/register" element={<AuthForms isRegister={true} />} />
